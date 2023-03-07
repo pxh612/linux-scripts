@@ -1,0 +1,67 @@
+# List of modifier:
+#   Release, Control, Shift, Mod1 (Alt), Mod2 (NumLock),
+#   Mod3 (CapsLock), Mod4, Mod5 (Scroll).
+#
+#    To specify an associated key, you can use `xbindkeys --key` or
+#        `xbindkeys --multikey` and put one of the two lines in the configuration file.
+#
+#	A list of keys is in /usr/include/X11/keysym.h and in /usr/include/X11/keysymdef.h.  The XK_ is not needed.
+
+#=== Tools
+"pxh612-screenshot"
+	Mod4 + F11
+"pxh612-screenshot"
+	Mod4 + Print
+#=== Volume
+"pxh612-volume 0"
+	Mod4 + F4
+"pxh612-volume 0"
+	Mod4 + XF86AudioMute
+"pxh612-volume -5"
+	Mod4 + F5
+"pxh612-volume -5"
+	Mod4 + XF86AudioLowerVolume
+"pxh612-volume +5"
+	Mod4 + F6
+"pxh612-volume +5"
+	Mod4 + XF86AudioRaiseVolume
+#=== Brightness
+"pxh612-brightness -0.1"
+	Mod4 + F1
+"pxh612-brightness -0.1"
+	Mod4 + XF86MonBrightnessDown
+"pxh612-brightness +0.1"
+	Mod4 + F2
+"pxh612-brightness +0.1"
+	Mod4 + XF86MonBrightnessUp
+
+"pxh612-brightness 0"
+	Shift+Mod4 + F1
+"pxh612-brightness 0"
+	Shift+Mod4 + XF86MonBrightnessDown
+"pxh612-brightness 70"
+	Shift+Mod4 + F2
+"pxh612-brightness 70"
+	Shift+Mod4 + XF86MonBrightnessUp
+#=== Terminal & launcher
+"pxh612-terminal"
+	Mod4 + Return
+"rofi -show run"
+	Mod4 + Control + Return
+"rofi -show drun"
+	Mod4 + Control + Alt + Return
+"rofi -show window -window-format "{c}     {t}""
+	Mod4 + Tab
+#=== System
+"reboot"	
+	Mod4 + Shift + Delete
+"systemctl suspend"
+	Mod4 + Delete
+#"pxh612-terminal pxh612-POPUP-textEdit"
+#	Mod4 + N
+	
+#"pxh612-browser-dmenu"
+# 	Mod4 + i
+
+#=== IMPORT
+#rofi -show run
