@@ -1,0 +1,14 @@
+#!/bin/bash
+
+path=$HOME/.BIN-DATA/pxh612-INFO-memory-getMemory
+availablePath=$path-available
+percentageUsedPath=$path-percentageUsed
+
+INFO=$(free --mega)
+echo "$INFO"
+echo 
+echo "$INFO" | awk '/^Mem/ {printf("%d", $3/($3+$7)*100);}' > $percentageUsedPath
+echo
+echo "$INFO" | awk '/^Mem/ {printf("%s", $7);}' > $availablePath
+echo "$INFO" | awk '/^Mem/ {printf("%s", $3);}' > $path-used
+echo end of script.

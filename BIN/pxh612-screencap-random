@@ -1,0 +1,15 @@
+#!/bin/sh
+files="$(find /home/pxh612/Downloads/PXH612/Image/screencap -type f)
+$(find /home/pxh612/Downloads/PXH612/Image/internet-pol -maxdepth 1 -type f)
+$(find /home/pxh612/screen-capture -maxdepth 1 -type f)"
+echo "$files" >&2
+
+count=$(echo "$files" | wc -l)
+let random=(RANDOM+RANDOM+RANDOM)%count+1
+
+echo === Choosen === >&2
+echo "$files" | sed "${random}q;d"
+echo $random >> /home/pxh612/Downloads/BIN/text/pxh612-screencap-random-number
+
+
+

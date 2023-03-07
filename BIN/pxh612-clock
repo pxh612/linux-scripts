@@ -1,0 +1,3 @@
+#!/bin/sh
+echo -en "\033]0;Clock \a" 
+watch -n 0,1 -t pxh612-date

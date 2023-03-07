@@ -1,0 +1,53 @@
+#!/bin/sh
+#terminal="qterminal"
+terminal="st"
+terminal="gnome-terminal"
+terminal="konsole"
+terminal="kitty"
+terminal="tilix"
+terminal="st"
+terminal="kitty"
+
+
+case $terminal in
+	"st")
+		additional="-f Terminus"
+		#geometry="-g =115x32"
+		geometry="-g =130x35"
+		;;
+esac
+
+while getopts "m" flag
+do
+	case $flag in 
+		m) # "m"iddle of screen
+			case $terminal in
+				"qterminal")
+					w=804
+					h=500
+					#let x=(1920-w)/2
+					#let y=(1080-h)/2
+					geometry="--geometry ${w}x${h}+$x+$y" #qterminal
+					;;
+				"st")
+					w=120
+					h=40
+					
+					x=680
+					y=300
+					
+					geometry="-g ${w}X${h}+$x+$y -i"
+					;;
+			esac
+			;;
+		\?)
+			echo "Invalid option: -$flag" >&2
+			exit
+			;;
+	esac
+done
+shift $((OPTIND-1))
+
+
+$terminal $additional $geometry "$@" 
+

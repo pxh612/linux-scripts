@@ -1,0 +1,14 @@
+#!/bin/bash
+# awk '/^Mem/ {printf("%u% (%s available)", 100*$3/$2, $7);}' <(free -h)
+pxh612-INFO-memory-getMemory 1>/dev/null
+
+path=$HOME/.BIN-DATA/pxh612-INFO-memory-getMemory
+availablePath=$path-available
+percentageUsedPath=$path-percentageUsed
+available=$(cat $availablePath)
+percentageUsed=$(cat $percentageUsedPath)
+used=$(cat $path-used)
+
+echo -n "RAM: "
+echo $percentageUsed% 
+echo \($used MB used, $available MB available\)

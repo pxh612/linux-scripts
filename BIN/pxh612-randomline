@@ -1,0 +1,33 @@
+#!/bin/sh
+Script_name=$(basename "$0")
+
+
+if [ "$1" == "-r" ]; then 
+	action="remove"
+	shift
+else 
+	action="print"
+fi
+
+
+file=$(realpath "$@")
+basename=$(basename "$@")
+dirname=$(dirname "$file") 
+meta_file=$dirname/.$basename
+
+case $action in
+	"print")
+		line_num=$(random $(cat "$file" | wc -l))
+		line=$(sed "${line_num}q;d" $file)
+
+		echo $line_num > "$meta_file"
+		echo $line
+		;;
+	"remove")
+		line_num=$(cat "$meta_file")
+		line=$(sed "${line_num}q;d" $file)
+
+		sed -i "${line_num}d" $file
+		notify-send -a $Script_name -t 1000 "delete: \"$line\""
+		;;
+esac

@@ -1,0 +1,3 @@
+#!/bin/sh
+path=/home/pxh612/fehbg
+cat $path

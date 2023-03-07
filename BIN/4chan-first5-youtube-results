@@ -1,0 +1,4 @@
+#!/bin/bash
+list="$(yt-dlp ytsearch5:"${1}" --get-title --get-id --get-duration)"
+id="$(awk -v x=$(awk 'BEGIN{x="nigger"; y=1}{if(x=="nigger"){buffer=$0;x=""}else if(NR%3==0){print y" "buffer" |duration: "$0"|";x="nigger";y=y+1}}' <<< ${list} | dmenu -c -l 10 -bw 3 | awk '{print $1}') '{if(NR==2+((x-1)*3)){print}}' <<< "${list}")"
+mpv "https://youtube.com/watch?v=${id}"

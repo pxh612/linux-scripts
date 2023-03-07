@@ -1,0 +1,22 @@
+#!/bin/sh
+fullfile="$@"
+
+filename="${fullfile##*/}"
+ext="${filename##*.}"
+
+#  echo 1="${FILE%%.*}"
+#  echo 2="${FILE%.*}"
+#  echo 3="${FILE#*.}"
+#  echo 4="${FILE##*.}"
+# https://stackoverflow.com/questions/965053/extract-filename-and-extension-in-bash
+echo Extension: $ext
+
+
+case $ext in
+	"pdf")
+		 evince "$@" 2>&1 &
+		 ;;
+	*)
+		fpad "$@" 2>&1 &
+esac
+

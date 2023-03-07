@@ -1,0 +1,12 @@
+#!/bin/sh
+
+
+#pactl -- set-sink-volume 0 $@%
+pactl set-sink-volume @DEFAULT_SINK@ $@%
+#notify-send -a Volume -i /home/pxh612/Downloads/PXH612/Image/Icon/volume.png $(pxh612-volume-info) -r 1 -t 500
+#Ubuntu 20.04: Assign ID is unavailable
+notify-send \
+-a Volume \
+-i /home/pxh612/Downloads/PXH612/Image/Icon/volume.png \
+-t 125 \
+$(pxh612-INFO-volume-raw) 

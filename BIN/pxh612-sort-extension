@@ -1,0 +1,7 @@
+#!/bin/bash 
+
+ext=$1
+folder="${ext^^}"
+mkdir -p "$folder"
+mv -v *."$ext" "$folder"/
+rm -v -d $folder

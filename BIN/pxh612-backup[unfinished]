@@ -1,0 +1,2 @@
+#!/bin/sh
+folder=`date +%Y_%m_%d`

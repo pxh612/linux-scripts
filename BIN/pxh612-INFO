@@ -1,0 +1,25 @@
+#!/bin/bash
+
+line(){
+    echo
+    echo "==================     "
+    echo
+} 
+pxh612-INFO-date 
+line
+pxh612-INFO-volume
+line
+pxh612-INFO-internetName
+pxh612-INFO-internetSpeed
+echo
+line
+pxh612-INFO-memory
+echo //toImplement: top 3 most resourceful task
+line
+pxh612-INFO-storage
+echo
+line
+pxh612-INFO-battery
+echo
+line
+echo //toImplement: TRUTH-oldest modified files

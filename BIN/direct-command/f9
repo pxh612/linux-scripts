@@ -1,0 +1,15 @@
+#!/bin/sh
+
+
+num=$2
+if [[ $num == "" ]]; then 
+	echo "No input"
+	exit
+fi
+
+g++ $1 || exit
+cat $num.in | ./a.out &&\
+cat $num.in | ./a.out >| $num.out 
+
+
+

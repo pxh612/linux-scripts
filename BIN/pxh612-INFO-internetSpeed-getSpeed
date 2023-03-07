@@ -1,0 +1,11 @@
+#!/bin/sh
+
+speed=$(speedtest-cli --secure --simple --no-upload | grep -P -o '\bDownload:\s+\K\S+' )
+speedMB=$(echo "scale = 2; $speed / 8" | bc )
+	
+echo $speed 
+echo $speedMB
+echo $speed  > $HOME/BIN/data/pxh612-INFO-internetSpeed-getSpeed-speed
+echo $speedMB > $HOME/BIN/data/pxh612-INFO-internetSpeed-getSpeed-speedMB 
+
+echo done.

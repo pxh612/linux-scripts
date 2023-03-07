@@ -1,0 +1,17 @@
+#!/bin/bash  
+#backlight_control "$@"
+#backlightctl $@%
+
+path=$HOME/.BIN-DATA/pxh612-brightness
+currentBrightness=$(cat "$path-currentBrightness")
+if [ -z "$currentBrightness" ]
+#if [ -e "$path-currentBrightness" ]
+then
+    currentBrightness=1.0
+fi
+currentBrightness=$(echo $currentBrightness $1 | bc)
+
+
+xrandr --output eDP  --brightness $currentBrightness
+echo $currentBrightness > "$path-currentBrightness"
+echo currentBrightness=$currentBrightness

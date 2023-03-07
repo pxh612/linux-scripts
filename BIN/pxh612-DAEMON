@@ -1,0 +1,7 @@
+#!/bin/sh
+rm $HOME/.BIN-DATA/pxh612-DAEMON-execute-*
+while [ true ]
+do
+    pxh612-DAEMON-execute
+    sleep 0.1
+done

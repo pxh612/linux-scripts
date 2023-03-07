@@ -1,0 +1,6 @@
+#!/bin/sh
+NAME=$(iwgetid -r)
+#IP=$(curl ifconfig.me)
+echo Wifi: $NAME
+# \ \ \ \($IP\)
+

@@ -1,0 +1,11 @@
+#!/bin/sh
+set-title Manpage...
+
+alias fzf='fzf --layout=reverse'
+file=$( apropos .  | awk '{print $1}' | uniq | fzf )
+if [ -z $file ]
+then notify-send -t 500 -a "$(basename "$0")" "No manpage choosen!" 
+else vman $file
+fi
+
+

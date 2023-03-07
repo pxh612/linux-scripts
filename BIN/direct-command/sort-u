@@ -1,0 +1,4 @@
+#!/bin/sh
+sed '/^$/d' --in-place "$@"
+sort -u "$@" -o "$@"
+echo Sorted file \"$(realpath "$@")\".

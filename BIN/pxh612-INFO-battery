@@ -1,0 +1,19 @@
+#!/bin/bash
+ACPI=$(acpi)
+battery=$(echo $ACPI | grep -P -o '[0-9]+(?=%)' )
+status=$(awk '/^Battery/ {printf $3}' <(acpi))
+
+time_remain=$(awk '/^Battery/ {printf $5}' <(echo "$ACPI"))
+
+
+printf "Battery: ${battery}%%"
+
+if [[ $status == "Discharging," ]]; then
+	statusMessage=" (~ $time_remain) "
+else
+	statusMessage=", charging"
+fi
+
+printf "$statusMessage"
+
+  

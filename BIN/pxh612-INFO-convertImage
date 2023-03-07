@@ -1,0 +1,15 @@
+#!/bin/sh
+
+textFilePath=$HOME/.BIN-DATA/pxh612-INFO-output
+imageFilePath=$HOME/.BIN-DATA/pxh612-INFO-output.png 
+
+
+pxh612-INFO > $textFilePath
+
+pango-view --font="Terminus 12" \
+--background=black \
+--foreground=red \
+--markup "$textFilePath" 
+
+# -q
+#--output=$imageFilePath

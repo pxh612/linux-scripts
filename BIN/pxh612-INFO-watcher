@@ -1,0 +1,2 @@
+set-title INFO WATCHER
+watch  -t -n 0.5 pxh612-INFO 

@@ -1,0 +1,10 @@
+#!/bin/sh
+dest="/home/pxh612/wifi-password"
+mkdir $dest
+
+cd /etc/NetworkManager/system-connections
+cp * $dest
+
+cd $dest
+chmod 776 *
+

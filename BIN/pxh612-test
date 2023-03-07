@@ -1,0 +1,4 @@
+pango-view --font="Arial 12" \
+ --background=white \
+ --markup "pxh612-INFO" \
+ --output=output.png 

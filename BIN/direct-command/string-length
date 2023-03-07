@@ -1,0 +1,4 @@
+#!/bin/sh
+str="$@"
+n=${#str}
+echo "Length of the string is : $n "

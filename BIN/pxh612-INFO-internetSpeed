@@ -1,0 +1,9 @@
+#!/bin/sh
+
+# Script "pxh612-INFO-internetSpeed-updater" should be run separately
+
+speed=$(cat $HOME/BIN/data/pxh612-INFO-internetSpeed-getSpeed-speed)
+speedMB=$(cat $HOME/BIN/data/pxh612-INFO-internetSpeed-getSpeed-speedMB)
+#ip=$(curl ifconfig.me)
+
+printf "Speed: $speed Mbit/s = $speedMB MB/s"

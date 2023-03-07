@@ -1,0 +1,10 @@
+#!/bin/sh
+dir=$HOME/.MANPAGE
+[ -d "$dir" ] || mkdir "$dir" 2>/dev/null
+path=$dir/$1.manpage
+
+man $1 >| $path &&\
+#nvim-qt -- -MR -c "set syntax=man" $path
+code -n $path
+
+

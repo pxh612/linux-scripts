@@ -1,0 +1,23 @@
+#/bin/bash
+
+# check to make sure the number of lines is the same
+[ x"$oldlength" = x"$newlength" ] || {
+    echo "failure: number of lines/paths has changed"
+    rm "$tempfile"
+    exit -1
+}
+
+i=0 for path; do
+    i=`expr $i + 1`
+    newpath=`sed -n ${i}p "$tempfile"`
+     [ x"$path" = x"$newpath" ] && continue
+     if [ x"$newpath" = x ]; then
+        echo "removing '$path'"
+        rm -r "$path"
+    else
+        echo "$path -> $newpath"
+        mv -n "$path" "$newpath"
+    fi
+done
+rm "$tempfile"
+# See vidir from the moreutils package. But yeah, this is definitely an itch worth scratching.

@@ -1,0 +1,8 @@
+#!/bin/sh
+
+l=1
+r=$1
+
+let RAW_RANDOM=RANDOM*RANDOM*RANDOM+RANDOM*RANDOM+RANDOM
+let x=RAW_RANDOM%r+l
+echo $x

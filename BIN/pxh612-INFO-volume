@@ -1,0 +1,3 @@
+#!/bin/sh
+INFO=$(pxh612-INFO-volume-raw)
+echo Volume: $INFO

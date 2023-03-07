@@ -1,0 +1,11 @@
+#!/bin/sh
+
+TIME=$1
+while [ $TIME -gt 0 ]
+do
+	echo $TIME seconds left...
+	let TIME=TIME-1
+	sleep 1
+done
+
+${@:2}

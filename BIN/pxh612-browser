@@ -1,0 +1,66 @@
+#!/bin/sh
+Script_name=$(basename "$0")
+Icon=/home/pxh612/Downloads/PXH612/Image/Icon/firefox.png
+alias notify-send='notify-send -i $Icon -a $Script_name -t 1000'
+
+#browse(){ min "$@" ;}
+browse(){ firefox "$@" ;}
+keyword=$1
+STR="${@:2}"
+if [[ -z $STR ]]; then STR=$(xclip -o) ;fi
+
+shift
+case $keyword in
+   "g")
+      	browse https://www.google.com/search?q="$STR"
+      	#browse http://searx.thegpm.org/?q="$STR"&categories=general&language=en-US
+      	;;
+   "y")
+      	browse https://www.youtube.com/results?search_query="$STR"
+      	;;
+   "film")
+		browse https://www.youtube.com/results?search_query="$STR"
+      	browse https://pirate-bays.net/search?q="$STR"
+      	browse https://rarbgway.org/torrents.php?search="$STR"
+      	browse https://www.1377x.to/search/"$STR"/1/
+      	browse https://yts.pm/browse-movies/"$STR"/all/all/0/latest
+      	browse http://syrlmovies.xyz/?s="$STR"
+      	;;
+   "4")
+      	browse https://boards.4channel.org/"$1"/"$2"
+      	;;
+   "anime")
+   		browse https://nyaa.si/?f=0&c=1_2&q="$STR"&s=seeders&o=desc
+   		;;
+   	"sub")
+		browse https://subscene.com/subtitles/searchbytitle   		
+		;;
+	"man")	
+		browse https://www.mankier.com/?q="$STR"
+		;;
+	"b")
+		browse https://b-ok.asia/s/"$STR"?
+		;;
+	"sauce")
+		browse https://saucenao.com
+		;;
+	"pp")
+		browse "$(pp)"
+		;;
+	"yt")
+		case $1 in
+			"music") dir=/home/pxh612/Downloads/PXH612/Music ;;
+			"media") dir=/home/pxh612/Downloads/PXH612/Media ;;
+			*) dir=/home/pxh612/Downloads/ ;;
+		esac
+		yt-dlp "$(pp)" -P $dir &
+		notify-send "Downloading \"$(pp)\" to \"$dir\""
+		;;
+	*)
+		if [[ -n "$keyword" ]]
+			then browse "$keyword" 
+			else notify-send "No input."
+		fi
+     	;;
+esac
+

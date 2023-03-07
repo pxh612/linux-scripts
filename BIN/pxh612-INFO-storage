@@ -1,0 +1,4 @@
+#!/bin/bash
+echo Storage:
+awk '/dev/{printf("%s/%s (%s available)",$3,$2,$4)}' <(df -h /dev/nvme0n1p3)
+

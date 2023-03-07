@@ -1,0 +1,14 @@
+#!/bin/sh
+set-title ...open text file...
+
+alias fzf='fzf --layout=reverse'
+file=$(pxh612-f | fzf)
+if [ -z $file ]
+then notify-send -t 500 -a "$(basename "$0")" "No file choosen!" 
+else 
+	cd "$(dirname "$file")"
+	nvim-qt "$file" 
+	child_pid=$!
+	nohup kill -SIGHUP $$ >/dev/null 2>&1
+fi
+

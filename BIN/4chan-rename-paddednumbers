@@ -1,0 +1,26 @@
+#!/bin/bash
+
+export IFS=$'\n'
+
+for i in "$@"
+do
+  mv "${i}" "aa${i}"
+done
+
+
+pad=$(($(echo "$#" | wc -c) - 1))
+num=1
+
+for i in "$@"
+do
+    i="aa${i}"
+    i=$(echo $i | sed 's/"/\\"/g')
+    if [[ $i =~ (.*)?\.(.*) ]]
+    then
+        echo mv \"$i\" \"$(printf "%0${pad}d" $num).${i#*.}\" | sh
+        ((num++))
+    else
+        echo mv \"$i\" \"$(printf "%0${pad}d" $num)\" | sh
+        ((num++))
+    fi
+done

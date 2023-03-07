@@ -1,0 +1,15 @@
+#!/bin/sh
+path=$HOME/.BIN-DATA/pxh612-INFO-memory-getMemory
+available=$(cat $path-available)
+
+message="$available MB left"
+
+if [ $available -lt 500 ]
+ then
+	notify-send \
+	-a "Memory low !" \
+	-t 500 \
+	"$message"
+fi
+
+kl

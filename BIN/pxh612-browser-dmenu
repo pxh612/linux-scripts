@@ -1,0 +1,6 @@
+#!/bin/sh
+list="$(cat /home/pxh612/Downloads/BIN/text/browser-bookmark)
+$(cat /home/pxh612/Downloads/TRUTH/URL/*)"
+#echo "$list" | rofi -dmenu -p "Wired" | xargs pxh612-browser
+rofi -dmenu -p "Wired" | xargs pxh612-browser
+

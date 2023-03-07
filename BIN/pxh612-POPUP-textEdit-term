@@ -1,0 +1,3 @@
+#!/bin/sh
+#pxh612-terminal -m -- -c popup -e pxh612-textedit-popup
+pxh612-terminal pxh612-textedit-popup
